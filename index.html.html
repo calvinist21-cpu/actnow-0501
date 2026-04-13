@@ -41,6 +41,14 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
+        /* Iframe container for Google Forms */
+        .form-container {
+            width: 100%;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="text-slate-900 antialiased min-h-[100dvh]">
@@ -48,9 +56,8 @@
 
     <!-- Navigation -->
     <nav class="glass-nav sticky top-0 z-40 border-b border-slate-200/50">
-        <div class="max-w-4xl mx-auto px-5 h-16 flex items-center justify-between">
-            <div id="navTitle" class="font-bold text-base md:text-lg tracking-tight truncate mr-4">제5차 ACT NOW 전국대회</div>
-            <a id="navCta" href="https://docs.google.com/forms/d/e/1FAIpQLSdoNhkxU8QsNGgC4ljNrg5l1WiHuTh7Rg90FzSgC8l-m9-yCw/viewform" target="_blank" class="bg-slate-900 text-white px-4 py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-slate-800 transition-all whitespace-nowrap">참가 신청 →</a>
+        <div class="max-w-4xl mx-auto px-5 h-16 flex items-center justify-center">
+            <div id="navTitle" class="font-bold text-base md:text-lg tracking-tight truncate">제5차 ACT NOW 전국대회</div>
         </div>
     </nav>
 
@@ -61,13 +68,13 @@
             <img id="logoImg" src="https://i.ifh.cc/WNlTmx.jpg" alt="ACT NOW 로고" class="max-h-24 md:max-h-40 object-contain">
         </section>
 
-        <!-- Promo Section (Static Content for Instant Loading) -->
+        <!-- Promo Section -->
         <section id="sectionPromo" class="bg-white/60 backdrop-blur-xl p-6 md:p-12 rounded-[2rem] border border-white/80 shadow-sm space-y-6 md:space-y-8">
             <div class="space-y-4">
-                <h1 id="promoTitle" class="text-2xl md:text-5xl font-black tracking-tight leading-tight text-slate-900">
+                <h1 id="promoTitle" class="text-2xl md:text-5xl font-black tracking-tight leading-tight text-slate-900 text-center md:text-left">
                     우리가 배운 교회 — Becoming Church
                 </h1>
-                <div class="flex flex-wrap gap-1.5 md:gap-2">
+                <div class="flex flex-wrap gap-1.5 md:gap-2 justify-center md:justify-start">
                     <span class="px-2.5 py-1 bg-slate-900/5 text-slate-600 rounded-lg text-[10px] md:text-xs font-semibold">#함께바른교회되기</span>
                     <span class="px-2.5 py-1 bg-slate-900/5 text-slate-600 rounded-lg text-[10px] md:text-xs font-semibold">#우면동교회</span>
                     <span class="px-2.5 py-1 bg-slate-900/5 text-slate-600 rounded-lg text-[10px] md:text-xs font-semibold">#5월1일</span>
@@ -82,21 +89,23 @@
                 <p>특별히 이번 전국대회는 이전과는 다른 방식으로 진행됩니다. 강단에서 일방적으로 듣는 대회가 아닙니다. <strong>퍼실리테이션</strong>을 통해 참석자 한 사람 한 사람이 토론에 직접 참여하며, 우리가 함께 걸어가야 할 교회의 길을 모색합니다. 보조 주제어인 Becoming Church는 이러한 방향을 분명히 합니다—교회가 되어간다는 것은 고정된 공간 안에 머무는 것이 아니라, 삶의 모든 현장에서 예수의 제자로 살아가며 교회의 참된 모습을 향해 끊임없이 변화해가는 과정이라는 고백입니다.</p>
                 <p>시대에 역행하고, 주님의 가르침에서 스스로 멀어진 교회와 목회자들로 인해 고개를 들기조차 부끄러운 시대를 살고 있습니다. 그러나 이럴 때일수록 우리 안의 예수가 더욱 선명해져야 합니다. 개인의 이익이 아닌 교회의 공공성을 세워야 합니다. 이 일은 누군가 대신해 줄 몫이 아닙니다. 우리 모두의 책무입니다.</p>
                 <p>ACT NOW는 교회가 바른 길 위에 다시 설 수 있도록 최선을 다하겠습니다. 이 땅의 공동체가 진정으로 믿고 기댈 수 있는 교회가 되는 그날까지, 멈추지 않겠습니다.</p>
-                <p>전국대회에 대한 자세한 내용은 아래 포스터를 참조해 주시고, 참여를 원하시는 분은 참가신청서를 작성해주세요. 고맙습니다.</p>
+                <p>전국대회에 대한 자세한 내용은 아래 포스터를 참조해 주시고, 참여를 원하시는 분은 아래 신청서를 작성해주세요. 고맙습니다.</p>
             </div>
         </section>
 
+        <!-- Poster Section (Moved up) -->
         <section id="sectionPoster" class="flex justify-center">
             <img id="posterImg" src="https://i.ifh.cc/TJjSaQ.jpg" alt="전국대회 포스터" class="w-full rounded-2xl md:rounded-3xl shadow-2xl shadow-slate-200/50">
         </section>
 
-        <section id="sectionCta" class="bg-slate-900/95 backdrop-blur-md text-white rounded-[2.5rem] p-10 md:p-16 text-center space-y-8">
-            <div class="space-y-3">
-                <h3 class="text-2xl md:text-4xl font-bold tracking-tight">지금 함께 참여하세요</h3>
-                <p class="text-slate-400 text-sm md:text-lg max-w-md mx-auto leading-relaxed">더딘 걸음이지만 단단하게, 우리가 배운 교회의 본질을 향해 함께 나아갑니다.</p>
+        <!-- Google Form Embed Section (Moved down below Poster) -->
+        <section id="sectionForm" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight">참가 신청서</h2>
+                <p class="text-slate-500 text-sm">아래 양식을 작성하여 제출해 주세요.</p>
             </div>
-            <div class="flex justify-center">
-                <a id="ctaBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSdoNhkxU8QsNGgC4ljNrg5l1WiHuTh7Rg90FzSgC8l-m9-yCw/viewform" target="_blank" class="bg-white text-slate-900 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-slate-100 transition-all active:scale-95">참가 신청하기 →</a>
+            <div class="form-container">
+                <iframe id="googleFormIframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdoNhkxU8QsNGgC4ljNrg5l1WiHuTh7Rg90FzSgC8l-m9-yCw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">로딩 중...</iframe>
             </div>
         </section>
 
@@ -112,15 +121,12 @@
     <!-- Login Modal -->
     <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[110] hidden items-center justify-center p-5">
         <div class="bg-white rounded-[2.5rem] p-8 w-full max-w-sm shadow-2xl space-y-6">
-            <div class="text-center space-y-2">
-                <div class="text-4xl">🔐</div>
-                <h2 class="text-xl font-bold text-slate-900 tracking-tight">관리자 인증</h2>
-            </div>
-            <input type="password" id="pwInput" class="w-full px-5 py-4 rounded-2xl border border-slate-200 text-center focus:ring-2 focus:ring-slate-900 outline-none text-lg" placeholder="비밀번호">
+            <h2 class="text-xl font-bold text-center">관리자 인증</h2>
+            <input type="password" id="pwInput" class="w-full px-5 py-4 rounded-2xl border text-center focus:ring-2 focus:ring-slate-900 outline-none" placeholder="비밀번호">
             <div id="pwError" class="text-red-500 text-sm text-center font-medium hidden">비밀번호가 올바르지 않습니다.</div>
             <div class="flex gap-3">
-                <button onclick="hideModal('loginModal')" class="flex-1 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600 active:scale-95 transition-transform">취소</button>
-                <button onclick="tryLogin()" class="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-bold active:scale-95 transition-transform">확인</button>
+                <button onclick="hideModal('loginModal')" class="flex-1 py-4 bg-slate-100 rounded-2xl">취소</button>
+                <button onclick="tryLogin()" class="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-bold">확인</button>
             </div>
         </div>
     </div>
@@ -130,23 +136,21 @@
         <div class="bg-slate-50 rounded-[2.5rem] w-full max-w-2xl shadow-2xl my-4 overflow-hidden border border-white">
             <div class="bg-slate-900 text-white p-6 md:p-8 flex justify-between items-center">
                 <div>
-                    <h2 class="font-bold text-xl tracking-tight text-white">콘텐츠 관리자</h2>
+                    <h2 class="font-bold text-xl tracking-tight">콘텐츠 관리자</h2>
                     <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Cloud Sync Active</p>
                 </div>
                 <button onclick="hideModal('adminModal')" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-xl hover:bg-white/20 text-white">✕</button>
             </div>
             
             <div class="p-6 md:p-8 space-y-8">
-                <!-- URL Config -->
                 <div class="bg-white p-6 rounded-3xl border border-slate-200/60 space-y-4">
-                    <h3 class="font-bold text-slate-900">🔗 링크 설정</h3>
+                    <h3 class="font-bold text-slate-900">🔗 신청서 링크 설정</h3>
                     <div class="space-y-1">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">신청 페이지 URL (Google Form 등)</label>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">구글 폼 URL (주소 끝에 ?embedded=true가 붙습니다)</label>
                         <input id="editFormUrl" type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-slate-900 outline-none">
                     </div>
                 </div>
 
-                <!-- Text Content -->
                 <div class="bg-white p-6 rounded-3xl border border-slate-200/60 space-y-4">
                     <h3 class="font-bold text-slate-900">📝 본문 수정</h3>
                     <div class="space-y-1">
@@ -179,12 +183,10 @@
         let configData = {};
         const ADMIN_PASSWORD = 'admin2026';
 
-        // 1. Authentication & Firestore Listener Setup
         async function init() {
             document.getElementById('footerYear').textContent = new Date().getFullYear();
             
             try {
-                // Rule 3: Auth First
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     await signInWithCustomToken(auth, __initial_auth_token);
                 } else {
@@ -193,59 +195,46 @@
 
                 onAuthStateChanged(auth, (user) => {
                     if (!user) return;
-                    
-                    // Rule 1: Correct Path Structure (6 segments for a document)
-                    // artifacts/{appId}/public/data/{collection}/{docId}
                     const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'web_content', 'landing_page');
-                    
                     onSnapshot(docRef, (docSnap) => {
                         if (docSnap.exists()) {
                             configData = docSnap.data();
                             syncUI(configData);
                         }
-                    }, (err) => {
-                        console.error("Snapshot error (check permissions/path):", err);
-                    });
+                    }, (err) => console.error("Snapshot error:", err));
                 });
             } catch (err) {
                 console.error("Auth initialization error:", err);
             }
 
-            // Secret trigger logic for Admin Panel
             let pressTimer;
             const trigger = document.getElementById('adminTrigger');
             const startPress = () => pressTimer = setTimeout(showLogin, 3000);
             const endPress = () => clearTimeout(pressTimer);
-
             trigger.addEventListener('touchstart', startPress);
             trigger.addEventListener('touchend', endPress);
             trigger.addEventListener('mousedown', startPress);
             trigger.addEventListener('mouseup', endPress);
         }
 
-        // 2. Synchronize Cloud Data with UI
         function syncUI(data) {
             if (data.googleFormUrl) {
-                document.getElementById('navCta').href = data.googleFormUrl;
-                document.getElementById('ctaBtn').href = data.googleFormUrl;
+                const url = data.googleFormUrl.includes('embedded=true') ? data.googleFormUrl : data.googleFormUrl + (data.googleFormUrl.includes('?') ? '&' : '?') + 'embedded=true';
+                document.getElementById('googleFormIframe').src = url;
             }
             if (data.promoText) {
                 const promoBody = document.getElementById('promoBody');
-                // Simple Markdown Parser
                 const html = data.promoText.trim().split(/\n\n+/).map(p => {
-                    const formatted = p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                                       .replace(/\n/g, '<br>');
+                    const formatted = p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
                     return `<p>${formatted}</p>`;
                 }).join('');
                 promoBody.innerHTML = html;
             }
         }
 
-        // 3. Admin UI Control Functions
         window.showLogin = () => {
-            const modal = document.getElementById('loginModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
             document.getElementById('pwInput').focus();
         };
 
@@ -269,9 +258,8 @@
         };
 
         function openAdminPanel() {
-            const modal = document.getElementById('adminModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminModal').classList.add('flex');
             document.getElementById('editFormUrl').value = configData.googleFormUrl || 'https://docs.google.com/forms/d/e/1FAIpQLSdoNhkxU8QsNGgC4ljNrg5l1WiHuTh7Rg90FzSgC8l-m9-yCw/viewform';
             document.getElementById('editPromoText').value = configData.promoText || document.getElementById('promoBody').innerText;
         }
@@ -279,30 +267,25 @@
         window.saveToCloud = async () => {
             if (!auth.currentUser) return;
             const btn = document.getElementById('btnSave');
-            const originalText = btn.textContent;
             btn.disabled = true;
             btn.textContent = "⌛ 저장 중...";
-
             const newData = {
                 googleFormUrl: document.getElementById('editFormUrl').value,
                 promoText: document.getElementById('editPromoText').value,
                 updatedAt: new Date().toISOString()
             };
-
             try {
                 const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'web_content', 'landing_page');
                 await setDoc(docRef, newData, { merge: true });
                 btn.textContent = "✅ 저장 완료";
                 setTimeout(() => {
-                    btn.textContent = originalText;
                     btn.disabled = false;
+                    btn.textContent = "💾 클라우드에 저장하기";
                     hideModal('adminModal');
                 }, 1500);
             } catch (err) {
-                console.error("Firestore Save Error:", err);
-                alert("저장에 실패했습니다. 권한 설정을 확인해 주세요.");
+                alert("저장 실패");
                 btn.disabled = false;
-                btn.textContent = originalText;
             }
         };
 
