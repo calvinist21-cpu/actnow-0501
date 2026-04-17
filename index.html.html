@@ -2,388 +2,386 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>제5차 ACT NOW 전국대회</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제5회 액트 나우 전국 대회 - 상세 페이지 리포트</title>
+    <!-- 폰트 적용 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css" type="text/css"/>
     <style>
         :root {
-            --bg-overlay: rgba(250, 250, 248, 0.88);
-            --bg-url: url('https://i.ifh.cc/VqfSVL.jpg');
-        }
-        body {
-            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
-            background-color: #fafaf8;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-        /* Mobile-safe fixed background */
-        .bg-fixed-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), var(--bg-url);
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-        @media (min-width: 768px) {
-            .bg-fixed-overlay { background-attachment: fixed; }
-        }
-        
-        /* Typography adjustments for readability */
-        .markdown-content p { 
-            margin-bottom: 1.5rem; 
-            line-height: 1.9; 
-            color: #374151; 
-            word-break: keep-all;
-            font-size: 1.1rem;
-        }
-        @media (max-width: 640px) {
-            .markdown-content p { font-size: 1.05rem; line-height: 1.8; }
-        }
-        .markdown-content strong { color: #111827; font-weight: 800; }
-        
-        .glass-nav {
-            background: rgba(250, 250, 248, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            --primary-color: #0052cc;
+            --secondary-color: #002d80;
+            --bg-light: #ffffff;
+            --bg-soft: #f4f7fa;
+            --text-main: #172b4d;
+            --text-sub: #44546f;
+            --accent-red: #ff4d4f;
+            --accent-green: #2E7D32;
+            --border-color: #ebecf0;
         }
 
-        /* Responsive iframe container */
-        .form-container {
-            position: relative;
-            width: 100%;
-            height: 1200px; 
-            overflow: hidden;
-            border-radius: 1.5rem;
-            background: white;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            word-break: keep-all;
         }
-        .form-container iframe {
-            position: absolute;
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Paperlogy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 프린트 설정: 페이지 나눔 최적화 */
+        @media print {
+            body { background: white; }
+            .section { padding: 40px 20px !important; border-bottom: none !important; }
+            .cta-section { background: #f0f2f5 !important; border: 1px solid #ccc !important; }
+            .no-print { display: none !important; }
+            @page { margin: 15mm; }
+        }
+
+        /* 상단 네비게이션/헤더 */
+        .top-nav {
+            position: sticky;
             top: 0;
-            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 100px; /* 로고 크게 유지 */
+            margin-right: 25px;
+        }
+
+        .nav-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        /* 공통 섹션 스타일 */
+        .section {
+            padding: 100px 10%;
             width: 100%;
-            height: 100%;
-            border: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-inner {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 20px auto 0;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, #0052cc 0%, #002d80 100%);
+            color: white;
+            padding: 120px 10%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+
+        /* 소개 섹션 */
+        .intro-bg {
+            background-color: var(--bg-soft);
+        }
+
+        .full-text-p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            text-align: center;
+            line-height: 2;
+        }
+
+        /* 가치/실천 섹션 */
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            padding: 50px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .do-card h3 { color: var(--accent-green); }
+        .dont-card h3 { color: var(--accent-red); }
+
+        .value-list {
+            list-style: none;
+        }
+
+        .value-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .value-list li:last-child { border-bottom: none; }
+
+        .do-card li::before { content: "✔"; color: var(--accent-green); font-weight: bold; }
+        .dont-card li::before { content: "✘"; color: var(--accent-red); font-weight: bold; }
+
+        /* 메시지 섹션 */
+        .message-box {
+            background: white;
+            border: 2px solid var(--primary-color);
+            padding: 60px;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .message-box p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .quote-mark {
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: serif;
+        }
+
+        /* 포스터 이미지 섹션 */
+        .poster-section {
+            background-color: #f4f7fa;
+            padding: 80px 10%;
+        }
+
+        .poster-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .poster-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* CTA 영역 */
+        .cta-section {
+            background: var(--bg-light);
+            padding: 80px 10%;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .url-display-box {
+            margin-top: 30px;
+            background: var(--bg-soft);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .url-text {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        /* 푸터 */
+        footer {
+            padding: 50px 10%;
+            background: #172b4d;
+            color: white;
+            text-align: center;
+        }
+
+        /* 반응형 */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.5rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 5%; }
+            .nav-title { display: none; }
+            .logo { height: 70px; }
         }
     </style>
 </head>
-<body class="text-slate-900 antialiased min-h-[100dvh]">
-    <div id="bgLayer" class="bg-fixed-overlay"></div>
+<body>
 
-    <!-- Navigation -->
-    <nav class="glass-nav sticky top-0 z-40 border-b border-slate-200/50">
-        <div class="max-w-4xl mx-auto px-5 h-16 flex items-center justify-between">
-            <div id="navTitle" class="font-bold text-base md:text-lg tracking-tight truncate mr-4">제5차 ACT NOW 전국대회</div>
-            <a id="navCta" href="#sectionCta" class="bg-slate-900 text-white px-4 py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-slate-800 transition-all whitespace-nowrap">참가 신청하기</a>
-        </div>
+    <!-- 고정 네비게이션 -->
+    <nav class="top-nav no-print">
+        <img src="https://i.ifh.cc/5gkLbQ.jpg" alt="Act Now Logo" class="logo">
+        <span class="nav-title"></span>
     </nav>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-5 py-8 md:py-20 flex flex-col gap-12 md:gap-24">
-        
-        <!-- Logo Section -->
-        <section id="sectionLogo" class="flex justify-center fade-in">
-            <img id="logoImg" src="https://i.ifh.cc/WNlTmx.jpg" alt="ACT NOW 로고" class="max-h-24 md:max-h-40 object-contain">
-        </section>
+    <!-- 히어로 섹션 -->
+    <header class="hero">
+        <div class="section-inner">
+            <h1>액트 나우 전국 대회</h1>
+            <p>지금 당장 실천하는 건강한 한국 교회를 꿈꾸며</p>
+        </div>
+    </header>
 
-        <!-- Hero/Promo Section -->
-        <section id="sectionPromo" class="bg-white/70 backdrop-blur-xl p-6 md:p-12 rounded-[2.5rem] border border-white/80 shadow-lg space-y-8 fade-in">
-            <div class="space-y-4">
-                <h1 id="promoTitle" class="text-3xl md:text-5xl font-black tracking-tight leading-tight text-slate-900 font-bold">
-                    우리가 배운 교회 — Becoming Church
-                </h1>
-                <div id="tagContainer" class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-slate-900/5 text-slate-700 rounded-lg text-xs font-bold">#함께바른교회되기</span>
-                    <span class="px-3 py-1 bg-slate-900/5 text-slate-700 rounded-lg text-xs font-bold">#우면동교회</span>
-                    <span class="px-3 py-1 bg-slate-900/5 text-slate-700 rounded-lg text-xs font-bold">#5월1일</span>
-                    <span class="px-3 py-1 bg-slate-900/5 text-slate-700 rounded-lg text-xs font-bold">#우리가_배운교회</span>
-                    <span class="px-3 py-1 bg-slate-900/5 text-slate-700 rounded-lg text-xs font-bold">#BecomingChurch</span>
+    <!-- 섹션 1: 소개 -->
+    <section class="section intro-bg">
+        <div class="section-inner">
+            <h2 class="section-title">지금 당장 실천합시다</h2>
+            <p class="full-text-p">
+                해마다 5월 1일이면 우면동 교회당에서 <strong>&lt;액트 나우 전국 대회&gt;</strong>가 열립니다. 
+                액트 나우는 “지금 당장 실천하자”라는 의미로 몇몇 그리스도인이 한국 교회를 건강하게 만들기 위해 만든 단체입니다. 
+                우리는 교회들이 몇 가지만 실천하면 건강해질 것이라고 생각했습니다. 
+                그래서 건강한 교회를 위해서 해야 할 것과 하지 말아야 할 것을 만들었습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 섹션 2: 실천 수칙 -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title">건강한 교회를 위한 약속</h2>
+            <div class="values-grid">
+                <!-- 하기 -->
+                <div class="value-card do-card">
+                    <h3>하기 (Doing)</h3>
+                    <ul class="value-list">
+                        <li>일상에서 그리스도의 가치를 실현하기</li>
+                        <li>재정을 투명하고 정직하게 사용하기</li>
+                        <li>지역사회와 소외된 이웃을 섬기기</li>
+                        <li>자녀의 신앙을 책임지는 가정 세우기</li>
+                        <li>환경 및 생태 윤리를 가르치며 실천하기</li>
+                    </ul>
+                </div>
+                <!-- 않기 -->
+                <div class="value-card dont-card">
+                    <h3>않기 (Don't)</h3>
+                    <ul class="value-list">
+                        <li>유사 세습을 포함한 세습을 하지 않기</li>
+                        <li>혐오와 배제로 복음을 왜곡시키지 않기</li>
+                        <li>무리한 건축을 비전으로 포장하지 않기</li>
+                        <li>임직시 헌금, 헌물을 요구하지 않기</li>
+                        <li>교회가 투기의 목적으로 부동산을 소유하지 않기</li>
+                    </ul>
                 </div>
             </div>
-            <div id="promoBody" class="markdown-content text-lg leading-relaxed text-slate-700">
-                <p>"함께 바른교회되기 ACT NOW"는 2022년 10월 31일, "건강한 공동체, 환대와 섬김, 교회의 연대, 사회적 책임, 미셔널 라이프"를 꿈꾸며 출범했습니다. 그날 이후 우리는 빠르게 달리지는 못했습니다. 그러나 단 한 번도 멈추지 않았습니다. 더딘 걸음이었기에 오히려 단단해졌습니다. 뜻을 같이하는 이들이 해를 거듭하며 꾸준히 모여들었고, 매해 두 차례 전국대회를 열어 함께 역량을 키우며 오늘 이 자리에 이르렀습니다.</p>
-                <p>올해 노동절, 5월 1일. 다섯 번째 ACT NOW 전국대회가 열립니다.</p>
-                <p>이번 전국대회의 전체 주제는 <strong>"우리가 배운 교회"</strong>입니다. "너희는 그리스도를 그같이 배우지 아니하였느니라"(엡 4:20). 이 한 구절의 말씀 앞에 우리는 다시 섭니다. 오늘날 한국교회는 예수 그리스도께서 가르치신 교회의 모습에서 너무도 멀리 떠나와 있습니다. 부패하고, 세속에 물들었습니다. 바로 이런 시대이기에 묻지 않을 수 없습니다—본래 우리가 배운 교회는 어떤 교회였는가. 이번 대회는 그 물음을 다양한 시각에서 함께 살피고, 다시 한번 마음에 새기는 시간이 될 것입니다.</p>
-                <p>특별히 이번 전국대회는 이전과는 다른 방식으로 진행됩니다. 강단에서 일방적으로 듣는 대회가 아닙니다. <strong>퍼실리테이션</strong>을 통해 참석자 한 사람 한 사람이 토론에 직접 참여하며, 우리가 함께 걸어가야 할 교회의 길을 모색합니다. 보조 주제어인 Becoming Church는 이러한 방향을 분명히 합니다—교회가 되어간다는 것은 고정된 공간 안에 머무는 것이 아니라, 삶의 모든 현장에서 예수의 제자로 살아가며 교회의 참된 모습을 향해 끊임없이 변화해가는 과정이라는 고백입니다.</p>
-                <p>시대에 역행하고, 주님의 가르침에서 스스로 멀어진 교회와 목회자들로 인해 고개를 들기조차 부끄러운 시대를 살고 있습니다. 그러나 이럴 때일수록 우리 안의 예수가 더욱 선명해져야 합니다. 개인의 이익이 아닌 교회의 공공성을 세워야 합니다. 이 일은 누군가 대신해 줄 몫이 아닙니다. 우리 모두의 책무입니다.</p>
-                <p>ACT NOW는 교회가 바른 길 위에 다시 설 수 있도록 최선을 다하겠습니다. 이 땅의 공동체가 진정으로 믿고 기댈 수 있는 교회가 되는 그날까지, 멈추지 않겠습니다.</p>
-                <p>전국대회에 대한 자세한 내용은 아래 포스터를 참조해 주시고, 참여를 원하시는 분은 참가신청서를 작성해주세요. 고맙습니다.</p>
+        </div>
+    </section>
+
+    <!-- 섹션 3: 대회장 메시지 -->
+    <section class="section intro-bg">
+        <div class="section-inner">
+            <h2 class="section-title">"우리가 배운 교회"</h2>
+            <div class="message-box">
+                <span class="quote-mark">“</span>
+                <p>여러분의 생각은 어떠신지요? 저는 오랫동안 “우면동 교회나 잘 하자”라는 생각으로 목회했습니다. 그래서 노회에서 임원을 맡으라고 할 때도 거절했고, 외부의 설교를 부탁받을 때도 대부분 거절했습니다.</p>
+                <p>그런데 어느 순간부터 후배들이 찾아왔습니다. 목회 현장에서 느끼는 절망은 생각보다 심각했습니다. 후배들에게 희망을 줘야겠다는 생각으로 건강한 교회를 꿈꾸는 선배들과 함께 &lt;액트 나우&gt;를 만들었습니다.</p>
+                <p>액트 나우 전국 대회는 5월 1일에는 서울 우면동 교회당에서, 종교개혁 즈음에 지방에서 열립니다. 올해 5회 대회의 주제는 <strong>“우리가 배운 교회(becomming church)”</strong>입니다. 여러분의 기도와 참여를 부탁드립니다.</p>
+                <p style="text-align: right; font-weight: 800; margin-top: 30px; color: var(--primary-color);">우면동교회 정준경 목사 드림</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Poster Section -->
-        <section id="sectionPoster" class="flex justify-center fade-in">
-            <img id="posterImg" src="https://i.ifh.cc/TJjSaQ.jpg" alt="전국대회 포스터" class="w-full rounded-3xl shadow-2xl shadow-slate-300/50">
-        </section>
-
-        <!-- Registration Section (Embedded Google Form) -->
-        <section id="sectionCta" class="space-y-8 fade-in">
-            <div class="text-center space-y-3">
-                <h3 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 font-bold">참가 신청서 작성</h3>
-                <p class="text-slate-600 text-base md:text-lg">아래 양식을 작성하여 제출해 주시면 신청이 완료됩니다.</p>
+    <!-- 섹션 4: 공식 포스터 (참가 신청 바로 위에 배치) -->
+    <section class="section poster-section">
+        <div class="section-inner">
+            <h2 class="section-title">대회 포스터</h2>
+            <div class="poster-box">
+                <img src="https://i.ifh.cc/FnRtg0.jpg" alt="제5회 액트 나우 전국 대회 포스터" class="poster-image">
             </div>
-            
-            <div id="formWrapper" class="form-container bg-white shadow-2xl border border-slate-200">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSedcaT4SV0Y1mJkRqfJh2SQoFrAvldN3GJ0cBqvcCmIOfJfpg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
+        </div>
+    </section>
+
+    <!-- 섹션 5: 참가 신청 안내 -->
+    <section class="cta-section">
+        <div class="section-inner">
+            <h2 class="section-title">대회 참여 및 신청</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">아래의 공식 신청 주소를 통해 접수해 주시기 바랍니다.</p>
+            <div class="url-display-box">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSedcaT4SV0Y1mJkRqfJh2SQoFrAvldN3GJ0cBqvcCmIOfJfpg/viewform" target="_blank" class="url-text">
+                    https://docs.google.com/forms/d/e/1FAIpQLSedcaT4SV0Y1mJkRqfJh2SQoFrAvldN3GJ0cBqvcCmIOfJfpg/viewform
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <footer class="border-t border-slate-200/50 py-12 text-center text-slate-500 text-xs tracking-wide">
-        <p class="px-5"><span id="footerText">제5차 ACT NOW 전국대회</span> © <span id="footerYear"></span></p>
+    <!-- 푸터 -->
+    <footer>
+        <div class="section-inner">
+            <p>© 2026 ACT NOW. All rights reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">액트나우 전국대회</p>
+        </div>
     </footer>
 
-    <!-- Secret Admin Trigger -->
-    <div id="adminTrigger" class="fixed top-0 left-0 w-16 h-16 z-[100] cursor-default"></div>
-
-    <!-- Modals -->
-    <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[110] hidden items-center justify-center p-5">
-        <div class="bg-white rounded-[2.5rem] p-8 w-full max-w-sm shadow-2xl space-y-6">
-            <div class="text-center space-y-2">
-                <div class="text-4xl">🔐</div>
-                <h2 class="text-xl font-bold text-slate-900 font-bold">관리자 인증</h2>
-            </div>
-            <input type="password" id="pwInput" class="w-full px-5 py-4 rounded-2xl border border-slate-200 text-center focus:ring-2 focus:ring-slate-900 outline-none text-lg" placeholder="비밀번호">
-            <div id="pwError" class="text-red-500 text-sm text-center hidden">비밀번호가 올바르지 않습니다.</div>
-            <div class="flex gap-3">
-                <button onclick="hideModal('loginModal')" class="flex-1 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">취소</button>
-                <button onclick="tryLogin()" class="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-bold">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="adminModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[120] hidden items-start justify-center p-4 overflow-y-auto">
-        <div class="bg-slate-50 rounded-[2.5rem] w-full max-w-2xl shadow-2xl my-4 overflow-hidden border border-white">
-            <div class="bg-slate-900 text-white p-6 md:p-8 flex justify-between items-center">
-                <div>
-                    <h2 class="font-bold text-xl tracking-tight">콘텐츠 관리자</h2>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Cloud Sync Enabled</p>
-                </div>
-                <button onclick="hideModal('adminModal')" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-xl hover:bg-white/20">✕</button>
-            </div>
-            
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/60 space-y-5">
-                    <h3 class="font-bold text-slate-900">⚙️ 기본 정보</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">사이트 제목</label>
-                            <input id="editSiteName" type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">신청 페이지 URL (구글 폼)</label>
-                            <input id="editFormUrl" type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/60 space-y-5">
-                    <h3 class="font-bold text-slate-900">📝 홍보 텍스트</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">메인 타이틀</label>
-                            <input id="editPromoTitle" type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-400 uppercase ml-1">본문 내용 (줄바꿈 두 번으로 단락 구분)</label>
-                            <textarea id="editPromoText" class="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl h-80 outline-none leading-relaxed"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/60 space-y-4">
-                    <h3 class="font-bold text-slate-900">🖼️ 배경 이미지</h3>
-                    <div id="bgPreviewBox" class="hidden text-center"><img id="bgPreviewImg" class="max-h-32 mx-auto rounded-xl border border-slate-100"><button onclick="clearAsset('bg')" class="text-xs text-red-500 mt-2 font-semibold">삭제</button></div>
-                    <label class="block p-5 border-2 border-dashed border-slate-200 rounded-2xl text-center cursor-pointer hover:bg-slate-50 active:bg-slate-100 transition-colors"><span class="text-xs text-slate-500 font-medium">배경 이미지 업로드</span><input type="file" class="hidden" accept="image/*" onchange="handleFile('bg', event)"></label>
-                </div>
-
-                <div class="flex gap-4 pt-4 pb-10">
-                    <button id="btnSave" onclick="saveToCloud()" class="flex-1 py-5 bg-slate-900 text-white rounded-[1.5rem] font-black shadow-2xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 active:scale-95">💾 클라우드에 저장하기</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'act-now-landing-v5';
-        
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        const DEFAULT_DATA = {
-            siteName: '제5차 ACT NOW 전국대회',
-            logoUrl: 'https://i.ifh.cc/WNlTmx.jpg',
-            bgUrl: 'https://i.ifh.cc/VqfSVL.jpg',
-            promoTitle: '우리가 배운 교회 — Becoming Church',
-            promoText: `"함께 바른교회되기 ACT NOW"는 2022년 10월 31일 출범했습니다. 그날 이후 우리는 단 한 번도 멈추지 않았습니다...\n\n참가신청서를 작성해주세요.`,
-            googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSedcaT4SV0Y1mJkRqfJh2SQoFrAvldN3GJ0cBqvcCmIOfJfpg/viewform'
-        };
-
-        let configData = { ...DEFAULT_DATA };
-        const ADMIN_PASSWORD = 'admin2026';
-
-        // 1. Initial Start: Immediate rendering of static content
-        document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-        // 2. Auth & Cloud Sync in background
-        const initCloud = async () => {
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
-            }
-
-            onAuthStateChanged(auth, (user) => {
-                if (!user) return;
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'web', 'landing');
-                onSnapshot(docRef, (docSnap) => {
-                    if (docSnap.exists()) {
-                        configData = { ...DEFAULT_DATA, ...docSnap.data() };
-                        render(configData);
-                    }
-                }, (error) => console.error("Cloud data load failed, using defaults."));
-            });
-        };
-        initCloud();
-
-        // Admin Trigger
-        let pressTimer;
-        const trigger = document.getElementById('adminTrigger');
-        trigger.addEventListener('touchstart', () => pressTimer = setTimeout(showLogin, 3000));
-        trigger.addEventListener('touchend', () => clearTimeout(pressTimer));
-        trigger.addEventListener('mousedown', () => pressTimer = setTimeout(showLogin, 3000));
-        trigger.addEventListener('mouseup', () => clearTimeout(pressTimer));
-
-        function render(data) {
-            document.getElementById('navTitle').textContent = data.siteName;
-            document.getElementById('footerText').textContent = data.siteName;
-            if (data.bgUrl) document.getElementById('bgLayer').style.setProperty('--bg-url', `url('${data.bgUrl}')`);
-            if (data.logoUrl) document.getElementById('logoImg').src = data.logoUrl;
-            
-            document.getElementById('promoTitle').textContent = data.promoTitle;
-            // Only update body if it's different from initial HTML to prevent flash
-            const parsedBody = parseMarkdown(data.promoText);
-            if (parsedBody && parsedBody.length > 50) {
-                document.getElementById('promoBody').innerHTML = parsedBody;
-            }
-
-            if (data.googleFormUrl) {
-                const embedUrl = data.googleFormUrl.includes('/viewform') 
-                    ? data.googleFormUrl.replace('/viewform', '/viewform?embedded=true')
-                    : data.googleFormUrl;
-                const currentIframe = document.querySelector('#formWrapper iframe');
-                if (!currentIframe || !currentIframe.src.includes(data.googleFormUrl)) {
-                    document.getElementById('formWrapper').innerHTML = `<iframe src="${embedUrl}" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>`;
-                }
-            }
-        }
-
-        function parseMarkdown(text) {
-            if (!text) return "";
-            return text.trim().split(/\n\n+/).map(p => {
-                let html = p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                           .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                           .replace(/\n/g, '<br>');
-                return `<p>${html}</p>`;
-            }).join('');
-        }
-
-        window.showLogin = () => {
-            document.getElementById('loginModal').classList.remove('hidden');
-            document.getElementById('loginModal').classList.add('flex');
-            document.getElementById('pwInput').focus();
-        };
-
-        window.hideModal = (id) => {
-            document.getElementById(id).classList.add('hidden');
-            document.getElementById(id).classList.remove('flex');
-        };
-
-        window.tryLogin = () => {
-            if (document.getElementById('pwInput').value === ADMIN_PASSWORD) {
-                hideModal('loginModal');
-                openAdmin();
-            } else {
-                const err = document.getElementById('pwError');
-                err.classList.remove('hidden');
-                setTimeout(() => err.classList.add('hidden'), 2000);
-            }
-        };
-
-        function openAdmin() {
-            document.getElementById('adminModal').classList.remove('hidden');
-            document.getElementById('adminModal').classList.add('flex');
-            document.getElementById('editSiteName').value = configData.siteName || '';
-            document.getElementById('editFormUrl').value = configData.googleFormUrl || '';
-            document.getElementById('editPromoTitle').value = configData.promoTitle || '';
-            document.getElementById('editPromoText').value = configData.promoText || '';
-        }
-
-        window.handleFile = (type, e) => {
-            const file = e.target.files[0];
-            if (!file || file.size > 1024 * 1024) { alert("1MB 이하만 가능합니다."); return; }
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                if (type === 'bg') configData.bgUrl = ev.target.result;
-                const pBox = document.getElementById('bgPreviewBox');
-                pBox.classList.remove('hidden');
-                document.getElementById('bgPreviewImg').src = ev.target.result;
-            };
-            reader.readAsDataURL(file);
-        };
-
-        window.clearAsset = (type) => {
-            if (type === 'bg') configData.bgUrl = '';
-            document.getElementById('bgPreviewBox').classList.add('hidden');
-        };
-
-        window.saveToCloud = async () => {
-            if (!auth.currentUser) return;
-            const btn = document.getElementById('btnSave');
-            btn.disabled = true;
-            btn.textContent = "⌛ 저장 중...";
-            
-            configData.siteName = document.getElementById('editSiteName').value;
-            configData.googleFormUrl = document.getElementById('editFormUrl').value;
-            configData.promoTitle = document.getElementById('editPromoTitle').value;
-            configData.promoText = document.getElementById('editPromoText').value;
-
-            try {
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'web', 'landing');
-                await setDoc(docRef, configData);
-                btn.textContent = "✅ 저장 완료";
-                btn.classList.add('bg-green-600');
-                setTimeout(() => {
-                    btn.textContent = "💾 클라우드에 저장하기";
-                    btn.classList.remove('bg-green-600');
-                    btn.disabled = false;
-                    hideModal('adminModal');
-                }, 1000);
-                render(configData);
-            } catch (err) {
-                console.error("Save error:", err);
-                alert("저장 실패"); 
-                btn.disabled = false;
-            }
-        };
-
-        document.getElementById('pwInput').onkeydown = (e) => { if(e.key === 'Enter') tryLogin(); };
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('HIS: Detailed report updated with the new poster above the CTA section.');
+        });
     </script>
 </body>
 </html>
